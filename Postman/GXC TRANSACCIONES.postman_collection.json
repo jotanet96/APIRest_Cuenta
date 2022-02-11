@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "6b5e16bf-f288-4e62-80bb-d5a10e275e72",
+		"name": "GXC TRANSACCIONES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44319/api/cuentatransaccion",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"cuentatransaccion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44319/api/cuentatransaccion/111111",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"cuentatransaccion",
+						"111111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Depósito",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/cuentatransaccion/0802502948/111111/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"cuentatransaccion",
+						"0802502948",
+						"111111",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Transferencia",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cedula\": \"0802502948\",\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Araujo\",\r\n    \"username\": \"jocam\",\r\n    \"password\": \"4444\",\r\n    \"correo\": \"jocam@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/cuentatransaccion/0802502948/111111/4514256321/123456/10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"cuentatransaccion",
+						"0802502948",
+						"111111",
+						"4514256321",
+						"123456",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AUTENTICADOR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cedula\": \"0802502948\",\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Araujo\",\r\n    \"username\": \"jocam\",\r\n    \"password\": \"4444\",\r\n    \"correo\": \"jocam@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44319/api/autenticacion",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44319",
+					"path": [
+						"api",
+						"autenticacion"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
