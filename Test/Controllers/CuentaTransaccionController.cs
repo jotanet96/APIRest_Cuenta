@@ -16,22 +16,27 @@ namespace Test.Controllers {
     [Authorize]
 
     public class CuentaTransaccionController : Controller {
-        
+
         private readonly AppDbContext context;
 
         readonly CorreoService cs = new CorreoService();
         public string mensaje = "";
 
-        public CuentaTransaccionController(AppDbContext context) {
+        public CuentaTransaccionController(AppDbContext context)
+        {
             this.context = context;
         }
 
         // GET: api/<UsuarioController>
         [HttpGet]
-        public ActionResult Get() {
-            try {
+        public ActionResult Get()
+        {
+            try
+            {
                 return Ok(context.cuenta_transaccion.ToList());
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 return BadRequest(e.Message);
             }
         }
@@ -39,49 +44,58 @@ namespace Test.Controllers {
 
         // GET api/<UsuarioController>/5
         [HttpGet("{num_cuenta}")]
-        public ActionResult Get(string num_cuenta) {
-            try {
+        public ActionResult Get(string num_cuenta)
+        {
+            try
+            {
                 return Ok(context.cuenta_transaccion.Where(ct => ct.Num_cuenta.Equals(num_cuenta)).ToList());
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 return BadRequest(e.Message);
             }
         }
 
         // POST api/<UsuarioController>
-        [HttpPost("{cedula}/{num_cuenta}/{valor}")]//DEPOSITO
-        public ActionResult Post(string cedula, string num_cuenta, decimal valor) { 
-            try {
+        [HttpPost]//DEPOSITO
+        public ActionResult Post([FromBody] Cuenta cuenta)
+        {
+            try
+            {
                 //Recuperamos el objeto
-                var cuenta_ = context.cuenta.FirstOrDefault(c => c.Num_cuenta == num_cuenta && c.Cedula == cedula);//Recuperamos el objeto
+                var cuenta_ = context.cuenta.FirstOrDefault(c => c.Num_cuenta == cuenta.Num_cuenta && c.Cedula == cuenta.Cedula);//Recuperamos el objeto
                 //Validamos que la cuenta 
-                if (cuenta_ == null) throw new Exception("La cuenta #" + num_cuenta + " no existe");
+                if (cuenta_ == null) throw new Exception("La cuenta #" + cuenta.Num_cuenta + " no existe");
 
-                if (cuenta_ != null) {
-                    cuenta_.Saldo += valor; //Se suma el saldo actual con el valor a depositar
+                if (cuenta_ != null)
+                {
+                    cuenta_.Saldo += cuenta.Saldo; //Se suma el saldo actual con el valor a depositar
 
                     //Se manda a actualizar el objeto
                     context.Entry(cuenta_).State = EntityState.Modified;
                     context.SaveChanges();
 
                     var cuenta_transaccion_ = new Cuenta_Transaccion();
-                    cuenta_transaccion_.Num_cuenta = num_cuenta;
-                    cuenta_transaccion_.Transaccion = "Se acreditó el valor de : $" + valor.ToString();
+                    cuenta_transaccion_.Num_cuenta = cuenta.Num_cuenta;
+                    cuenta_transaccion_.Transaccion = "Se acreditó el valor de : $" + cuenta.Saldo.ToString();
 
                     context.cuenta_transaccion.Add(cuenta_transaccion_);
                     context.SaveChanges();
 
                     //Recuperamos el objeto
-                    var id_transacion_ = context.cuenta_transaccion.FirstOrDefault(ct => ct.Num_cuenta == num_cuenta);
+                    var id_transacion_ = context.cuenta_transaccion.FirstOrDefault(ct => ct.Num_cuenta == cuenta.Num_cuenta);
                     string date = DateTime.UtcNow.ToString("MM-dd-yyyy HH:mm");
                     mensaje = date + "<br/>" +
-                        "Se ha realizado un depósito <strong>(Id #" + id_transacion_.Id + ")</strong> a la cuenta <strong>" + num_cuenta + 
-                        "</strong> por el valor de <strong>$ " + valor + "</strong>";
+                        "Se ha realizado un depósito <strong>(Id #" + id_transacion_.Id + ")</strong> a la cuenta <strong>" + cuenta.Num_cuenta +
+                        "</strong> por el valor de <strong>$ " + cuenta.Saldo + "</strong>";
                     cs.enviarCorreo(mensaje);
 
                     //return CreatedAtRoute("GetCuenta", new { num_cuenta = cuenta.Num_cuenta, cedula = cuenta.Cedula }, cuenta);
                     return CreatedAtRoute("GetCuenta", new { num_cuenta = cuenta_.Num_cuenta, cedula = cuenta_.Cedula }, cuenta_);
-                
-                } else {
+
+                }
+                else
+                {
                     return BadRequest();
                 }
             }
@@ -91,10 +105,10 @@ namespace Test.Controllers {
             }
         }
 
-
         // PUT api/<UsuarioController>/5
         [HttpPut("{cedula}/{num_cuenta}/{cedula_b}/{num_cuenta_b}/{valor}")]//Transferencia
-        public ActionResult Put(string cedula, string num_cuenta, string cedula_b, string num_cuenta_b, decimal valor) {
+        public ActionResult Put(string cedula, string num_cuenta, string cedula_b, string num_cuenta_b, decimal valor)
+        {
             try
             {
                 //Recuperamos el objeto A
@@ -108,7 +122,8 @@ namespace Test.Controllers {
                 //Validamos que la cuenta B
                 if (cuenta_b_ == null) throw new Exception("La cuenta #" + num_cuenta_b + " no existe");
 
-                if (valor <= cuenta_a_.Saldo) { //Validamos que tenga saldo disponible para debitar
+                if (valor <= cuenta_a_.Saldo)
+                { //Validamos que tenga saldo disponible para debitar
                     cuenta_a_.Saldo -= valor; //Se resta el saldo a debitar
 
                     //Se manda a actualizar el objeto A
@@ -125,7 +140,9 @@ namespace Test.Controllers {
                     context.cuenta_transaccion.Add(cuenta_transaccion_a_);
                     context.SaveChanges();
 
-                } else {
+                }
+                else
+                {
                     throw new Exception("No cuenta con saldo disponible en la cuenta");
                 }
 
@@ -159,9 +176,12 @@ namespace Test.Controllers {
 
                 return Ok("La transaccion fue un exito");
 
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 return BadRequest(e.Message);
             }
+
         }
     }
 }

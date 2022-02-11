@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0OTQyNSwiZXhwIjoxNjQ0NTUzMDI1LCJpYXQiOjE2NDQ1NDk0MjV9.hxopJEEmQHl9vaRzqueERcLTrMYl1yH4oXMYrI1FZDY",
 							"type": "string"
 						}
 					]
@@ -43,7 +43,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0OTQyNSwiZXhwIjoxNjQ0NTUzMDI1LCJpYXQiOjE2NDQ1NDk0MjV9.hxopJEEmQHl9vaRzqueERcLTrMYl1yH4oXMYrI1FZDY",
 							"type": "string"
 						}
 					]
@@ -51,7 +51,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44319/api/cuentatransaccion/111111",
+					"raw": "https://localhost:44319/api/cuentatransaccion/111112",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -60,7 +60,7 @@
 					"path": [
 						"api",
 						"cuentatransaccion",
-						"111111"
+						"111112"
 					]
 				}
 			},
@@ -74,7 +74,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0ODk4NiwiZXhwIjoxNjQ0NTUyNTg2LCJpYXQiOjE2NDQ1NDg5ODZ9.9R0vu0PYhz4_quB7fgdK_r1Lm2-NCrNg_fQHktMzq4c",
 							"type": "string"
 						}
 					]
@@ -83,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n    \"num_cuenta\": \"111112\",\r\n    \"saldo\": 5,\r\n    \"cedula\": \"0802502948\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +91,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44319/api/cuentatransaccion/0802502948/111111/5",
+					"raw": "https://localhost:44319/api/cuentatransaccion",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -99,10 +99,7 @@
 					"port": "44319",
 					"path": [
 						"api",
-						"cuentatransaccion",
-						"0802502948",
-						"111111",
-						"5"
+						"cuentatransaccion"
 					]
 				}
 			},
@@ -116,7 +113,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0NDc3MiwiZXhwIjoxNjQ0NTQ4MzcyLCJpYXQiOjE2NDQ1NDQ3NzJ9.m3ga7uU2derk1C7ztPXUdPGIYxiIj0Xi59YNcF4AIlU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb2NhbSIsIm5iZiI6MTY0NDU0OTY4MiwiZXhwIjoxNjQ0NTUzMjgyLCJpYXQiOjE2NDQ1NDk2ODJ9.NkVzQJlgew6KnlnE_VACAGbf4UPt98UFq36sow9BiX4",
 							"type": "string"
 						}
 					]
@@ -125,7 +122,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"cedula\": \"0802502948\",\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Araujo\",\r\n    \"username\": \"jocam\",\r\n    \"password\": \"4444\",\r\n    \"correo\": \"jocam@gmail.com\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -133,7 +130,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:44319/api/cuentatransaccion/0802502948/111111/4514256321/123456/10",
+					"raw": "https://localhost:44319/api/cuentatransaccion/0802502948/111111/0802502948/111113/20",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -144,9 +141,9 @@
 						"cuentatransaccion",
 						"0802502948",
 						"111111",
-						"4514256321",
-						"123456",
-						"10"
+						"0802502948",
+						"111113",
+						"20"
 					]
 				}
 			},
