@@ -25,6 +25,7 @@ Prueba Ingreso
 IMPORTANTE:
 Rutas del postman
  GXC USUARIO 
+ 
           GET       = N/A
           GETById   = /{cedula}
           POST      = N/A
@@ -32,6 +33,7 @@ Rutas del postman
           DELETE    = /{cedula}
           
  GXC CUENTA 
+ 
           GET       = N/A
           GETById   = /{num_cuenta}/{cedula}
           POST      = N/A
@@ -39,6 +41,7 @@ Rutas del postman
           DELETE    = /{num_cuenta}/{cedula}
           
  GXC TRANSACCIONES 
+ 
           GET       = N/A
           GETById   = /{num_cuenta}
           POST      = FROM BODY {"num_cuenta": "111112","saldo": 5,"cedula": "0802502948"}
