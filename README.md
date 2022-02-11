@@ -20,3 +20,30 @@ Prueba Ingreso
           c. GXC TRANSACCIONES (
               i. Generar Token en POST AUTENTICADOR
               ii. Ingresar Bearer Token en Auth de las otras operaciones
+
+
+IMPORTANTE:
+Rutas del postman
+ GXC USUARIO 
+          GET       = N/A
+          GETById   = /{cedula}
+          POST      = N/A
+          PUT       = /{cedula}
+          DELETE    = /{cedula}
+          
+ GXC CUENTA 
+          GET       = N/A
+          GETById   = /{num_cuenta}/{cedula}
+          POST      = N/A
+          PUT       = /{num_cuenta}/{cedula}
+          DELETE    = /{num_cuenta}/{cedula}
+          
+ GXC TRANSACCIONES 
+          GET       = N/A
+          GETById   = /{num_cuenta}
+          POST      = FROM BODY {"num_cuenta": "111112","saldo": 5,"cedula": "0802502948"}
+          PUT       = /{cedula}/{num_cuenta}/{cedula_b}/{num_cuenta_b}/{valor}
+          
+          --CONTROLER AUTENTICATOR
+          POST    = /{"cedula": "0802502948","nombre": "Jose","apellido": "Araujo","username":Jocam","password": "4444","correo": "jocam@gmail.com"}
+          
